@@ -1,4 +1,5 @@
 import { Table, TableColumnProps, Space, Button } from '@arco-design/web-react'
+import Text from '@arco-design/web-react/es/Typography/text'
 import { IconDelete, IconEdit } from '@arco-design/web-react/icon'
 import { useEffect, useState } from 'react'
 import ITopic from '../../model/http'
@@ -13,7 +14,10 @@ const Topics = () => {
     },
     {
       title: '持方',
-      dataIndex: 'side'
+      dataIndex: 'side',
+      render: (side) => {
+        return <Text>{side === 0 ? '正方' : '反方'}</Text>
+      }
     },
     {
       title: '所属比赛',
@@ -21,7 +25,10 @@ const Topics = () => {
     },
     {
       title: '胜负',
-      dataIndex: 'outcome'
+      dataIndex: 'outcome',
+      render: (outcome) => {
+        return <Text>{outcome === 0 ? '负' : '胜'}</Text>
+      }
     },
     {
       title: '资料',
@@ -56,7 +63,7 @@ const Topics = () => {
   }, [])
   return (
     <>
-      <Table columns={columns} data={topics} />
+      <Table rowKey="competition_id" columns={columns} data={topics} />
     </>
   )
 }
