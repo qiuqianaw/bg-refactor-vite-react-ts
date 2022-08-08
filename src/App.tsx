@@ -11,12 +11,14 @@ import Debaters from './pages/Debaters'
 import FeedBack from './pages/FeedBack'
 import OpenSource from './pages/OpenSource'
 import UpdateNote from './pages/UpdateNote'
+import Login from './pages/Login'
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Layout />}>
             <Route index element={<DashBoard />} />
             <Route path="/topics" element={<Topics />} />
