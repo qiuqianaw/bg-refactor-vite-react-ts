@@ -20,7 +20,9 @@ import {
   IconSubscribeAdd,
   IconUserGroup,
   IconDragDot,
-  IconSubscribed
+  IconSubscribed,
+  IconBytedanceColor,
+  IconLanguage
 } from '@arco-design/web-react/icon'
 import './index.scss'
 import { Link as RLink, useLocation } from 'react-router-dom'
@@ -74,7 +76,7 @@ const PageLayout = () => {
         >
           <MenuItem key="/">
             <IconHome />
-            <RLink to={'/'}>Dashboard</RLink>
+            <RLink to={'/'}>控制面板</RLink>
           </MenuItem>
 
           <SubMenu
@@ -158,6 +160,8 @@ const PageLayout = () => {
               }}
               className="header-right-search"
             />
+            <Button shape="circle" icon={<IconLanguage />} />
+
             <Button
               onClick={changeArcoTheme}
               shape="circle"
@@ -193,13 +197,12 @@ const PageLayout = () => {
           </Content>
           <Footer>
             <Link
-              icon
               href="https://beian.miit.gov.cn/"
               style={{
                 color: 'var(--color-grey)'
               }}
             >
-              蜀ICP备2022003677号
+              蜀ICP备2022003677号, UI Powered by <IconBytedanceColor />
             </Link>
           </Footer>
         </Layout>
