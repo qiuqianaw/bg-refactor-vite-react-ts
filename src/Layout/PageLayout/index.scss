@@ -1,0 +1,57 @@
+.layout-collapse-demo {
+  height: 100%;
+  border: 1px solid var(--color-border);
+  background: var(--color-fill-2);
+  .arco-layout-sider {
+    .logo {
+      height: 32px;
+      margin: 12px 8px;
+    }
+  }
+  .arco-layout-sider-light {
+    .logo {
+      display: flex;
+      align-items: center;
+      height: auto;
+      width: auto;
+      .logo-text {
+        color: var(--color-text-1);
+        font-family: PingFang SC;
+        font-size: 20px;
+        font-weight: 500;
+        margin-left: 10px;
+      }
+    }
+  }
+  .arco-layout-header {
+    height: 64px;
+    line-height: 64px;
+    background: var(--color-bg-3);
+    .header-right {
+      padding-right: 24px;
+      display: flex;
+      justify-content: end;
+      .header-right-search {
+        .arco-input-inner-wrapper {
+          border-radius: 16px;
+        }
+      }
+    }
+    .trigger {
+      margin-left: 20px;
+    }
+  }
+  .arco-layout-footer {
+    color: var(--color-text-2);
+    height: 46px;
+    line-height: 48px;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    font-stretch: condensed;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

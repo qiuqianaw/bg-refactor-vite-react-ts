@@ -1,33 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
+import DashBoard from './pages/DashBoard'
+import Games from './pages/Games'
+
+import Layout from './Layout/PageLayout'
+import Topics from './pages/Topics'
+import AddGame from './pages/AddGame'
+import AddTopic from './pages/AddTopic'
+import Debaters from './pages/Debaters'
+import FeedBack from './pages/FeedBack'
+import OpenSource from './pages/OpenSource'
+import UpdateNote from './pages/UpdateNote'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<DashBoard />} />
+            <Route path="/topics" element={<Topics />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/addgame" element={<AddGame />} />
+            <Route path="/addtopic" element={<AddTopic />} />
+            <Route path="/debaters" element={<Debaters />} />
+            <Route path="/feedback" element={<FeedBack />} />
+            <Route path="/opensource" element={<OpenSource />} />
+            <Route path="/updatenote" element={<UpdateNote />} />
+          </Route>
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    </BrowserRouter>
   )
 }
 
