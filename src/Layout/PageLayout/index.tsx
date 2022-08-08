@@ -26,7 +26,7 @@ import {
 } from '@arco-design/web-react/icon'
 import './index.scss'
 import { Link as RLink, useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Text from '@arco-design/web-react/es/Typography/text'
 import ContentLayout from '../ContentLayout'
 
@@ -43,13 +43,22 @@ const PageLayout = () => {
 
   const { pathname } = useLocation()
 
+  // 黑白模式切换
+  const [theme, setTheme] = useState('')
+  useEffect(() => {
+    const _theme = document.body.getAttribute('arco-theme')
+    setTheme(_theme ? _theme : '')
+  }, [theme])
   const changeArcoTheme = () => {
-    const arcoTheme = document.body.getAttribute('arco-theme')
-    document.body.setAttribute(
-      'arco-theme',
-      arcoTheme === 'dark' ? 'light' : 'dark'
-    )
+    if (theme.length < 1) {
+      setTheme('dark')
+      document.body.setAttribute('arco-theme', 'dark')
+    } else {
+      setTheme('light')
+      document.body.removeAttribute('arco-theme')
+    }
   }
+
   return (
     <Layout className="layout-collapse-demo">
       <Sider
