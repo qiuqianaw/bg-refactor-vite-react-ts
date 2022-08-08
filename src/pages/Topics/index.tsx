@@ -5,7 +5,7 @@ import ITopic from '../../model/http'
 import { http } from '../../utils'
 
 const Topics = () => {
-  const [topics, setTopics] = useState([])
+  const [topics, setTopics] = useState<ITopic[]>([])
   const columns: TableColumnProps[] = [
     {
       title: '题目',
@@ -49,8 +49,7 @@ const Topics = () => {
   ]
   useEffect(() => {
     const loadTopics = async () => {
-      const res: ITopic = await http.get('result/findAllResult')
-      console.log(res)
+      const res: ITopic[] = await http.get('result/findAllResult')
       setTopics(res)
     }
     loadTopics()

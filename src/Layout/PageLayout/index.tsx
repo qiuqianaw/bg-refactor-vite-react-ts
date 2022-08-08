@@ -6,7 +6,8 @@ import {
   Image,
   Button,
   Space,
-  Input
+  Input,
+  Message
 } from '@arco-design/web-react'
 import {
   IconHome,
@@ -81,6 +82,12 @@ const PageLayout = () => {
           defaultSelectedKeys={[pathname]}
           style={{
             width: '100%'
+          }}
+          onClickMenuItem={(key) => {
+            Message.info({
+              content: `You select ${key}`,
+              showIcon: true
+            })
           }}
         >
           <MenuItem key="/">
